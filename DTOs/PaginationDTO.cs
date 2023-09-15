@@ -3,8 +3,8 @@
     public class PaginationDTO
     {
         public int PageNumber { get; set; } = 1;
-        private int RowsperPage { get; set; } = 1;
-        private readonly int MaxRowsPerPage = 2;
+        private int RowsperPage { get; set; } = 30;
+        private readonly int MaxRowsPerPage = 50;
 
         public int RowPerPage
         {

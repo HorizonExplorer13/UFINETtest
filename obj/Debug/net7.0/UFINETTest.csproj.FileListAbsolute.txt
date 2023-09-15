@@ -74,3 +74,5 @@ D:\C#VS22\UFINET\UFINETTest\obj\Debug\net7.0\refint\UFINETTest.dll
 D:\C#VS22\UFINET\UFINETTest\obj\Debug\net7.0\UFINETTest.pdb
 D:\C#VS22\UFINET\UFINETTest\obj\Debug\net7.0\UFINETTest.genruntimeconfig.cache
 D:\C#VS22\UFINET\UFINETTest\obj\Debug\net7.0\ref\UFINETTest.dll
+D:\C#VS22\UFINET\UFINETTest\bin\Debug\net7.0\AutoMapper.dll
+D:\C#VS22\UFINET\UFINETTest\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

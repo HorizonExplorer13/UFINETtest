@@ -3,13 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UFINETTest.Entities
 {
-    public class CountrySites
+    public class CountrySite
     {
-        [Key]
-        public int CountrySitesId { get; set; }
         [ForeignKey("Country")]
         public int? CountryId { get; set; }
-        public Country Country { get; set; }
         [ForeignKey("Restaurant")]
         public int? RestaurantId { get; set; }
         public Restaurant Restaurant { get; set; }

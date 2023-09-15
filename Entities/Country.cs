@@ -10,10 +10,9 @@ namespace UFINETTest.Entities
         public string Name { get; set; }
         public string isoCode { get; set; }
         public string Population { get; set; }
+        public List<CountrySite> sites { get; set; }
 
-        public List<Restaurant> Restaurants { get; set;}
 
-        public List<Hotel> Hotel { get; set; }
 
 
 
