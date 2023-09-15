@@ -1,5 +1,5 @@
---Este segmento es una funcion para asignar de forma aleatoria restaurantes y hoteles a la mayoria de paises dentro de la tabla Countries,
---evitando hacer duplicados.
+-- This section contains a function to randomly assign restaurants and hotels to most of the countries in the countries table (avoiding duplicates).
+
 
 DECLARE @cont INT
 SET @cont = 0
