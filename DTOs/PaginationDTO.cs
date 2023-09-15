@@ -6,7 +6,7 @@
         private int RowsperPage { get; set; } = 1;
         private readonly int MaxRowsPerPage = 2;
 
-        public int RowsPerPage
+        public int RowPerPage
         {
             get
             {

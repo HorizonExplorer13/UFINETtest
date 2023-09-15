@@ -17,11 +17,20 @@ namespace UFINETTest.Controllers
         }
 
         [HttpGet("GetData")]
-        public async Task<IActionResult> GetData([FromQuery] PaginationDTO Pagination)
+        public async Task<IActionResult> GetData([FromQuery] PaginationDTO Pagination, [FromQuery] string Filter)
         {
             var queryable = dbContext.Countries.AsQueryable();
+            if (!string.IsNullOrEmpty(Filter))
+            {
+                queryable = queryable.Where(country =>
+                    country.Name.Contains(Filter) ||
+                    country.isoCode.Contains(Filter) ||
+                    country.Restaurants.Any(restaurant => restaurant.Name.Contains(Filter)) ||
+                    country.Hotel.Any(hotel => hotel.Name.Contains(Filter))
+                );
+            }
             await HttpContext.HeadersInsert(queryable);
-            var data = await dbContext.Countries.Select(country => new CountryDataDTO
+            var data = await queryable.OrderBy(c => c.Name).Pager(Pagination).Select(country => new CountryDataDTO
             {
                 CountryId = country.CountryId,
                 Name = country.Name,
@@ -47,9 +56,20 @@ namespace UFINETTest.Controllers
         }
 
         [HttpGet("SecondAltGetData")]
-        public async Task<ActionResult<List<Country>>> Get()
+        public async Task<ActionResult<List<Country>>> Get([FromQuery] PaginationDTO Pagination, [FromQuery] string Filter)
         {
-            return await dbContext.Countries.Include(r => r.Restaurants).Include(h => h.Hotel).ToListAsync();
+            var queryable = dbContext.Countries.AsQueryable();
+            if (!string.IsNullOrEmpty(Filter))
+            {
+                    queryable = queryable.Where(country =>
+                    country.Name.Contains(Filter) ||
+                    country.isoCode.Contains(Filter) ||
+                    country.Restaurants.Any(r => r.Name.Contains(Filter)) ||
+                    country.Hotel.Any(h => h.Name.Contains(Filter))
+                );
+            }
+            await HttpContext.HeadersInsert(queryable);
+            return await queryable.OrderBy(c=>c.Name).Pager(Pagination).Include(r => r.Restaurants).Include(h => h.Hotel).ToListAsync();
         }
 
 

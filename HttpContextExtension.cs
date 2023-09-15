@@ -11,7 +11,7 @@ namespace UFINETTest
                 throw new ArgumentNullException(nameof(httpContext));
                     }
             double Quantity = await query.CountAsync();
-            httpContext.Response.Headers.Add("Total registers", Quantity.ToString()); 
+            httpContext.Response.Headers.Add("Total_registers", Quantity.ToString()); 
                 
             
         }

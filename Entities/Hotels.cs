@@ -7,5 +7,7 @@ namespace UFINETTest.Entities
         public int HotelId { get; set; }
         public string Name { get; set;}
         public string Stars { get; set; }
+        public int? CountryId { get; set; }
+        public Country Country { get; set; }
     }
 }
